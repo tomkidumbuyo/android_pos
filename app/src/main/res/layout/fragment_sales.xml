@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    app:cardBackgroundColor="#012166"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="false"
+    android:id="@+id/header_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_middle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="Total Sales"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/light_blue_50"
+            app:fontFamily="@font/paypalsansbig_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24.561"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/white"
+            app:fontFamily="@font/paypalsanssmall_regular" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="VAT 3734.89"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/light_blue_200"
+            app:fontFamily="@font/paypalsansbig_regular" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_mxlarge" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:gravity="bottom"
+        android:id="@+id/available_items"
+        android:layout_marginBottom="50dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/item_search_div"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/border_vertical_set">
+
+            <ImageButton
+                android:id="@+id/dialpad_button"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_dialpad"
+                android:background="@null"
+                android:tint="@color/grey" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_toLeftOf="@+id/search_button"
+                android:layout_toRightOf="@+id/dialpad_button"
+
+                android:background="@null"
+                android:hint="search items"
+                android:paddingLeft="20dp"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <ImageButton
+                android:id="@+id/search_button"
+                android:layout_width="70dp"
+                android:layout_height="69dp"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:src="@drawable/ic_search_grey" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/keypad_input_div"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/border_vertical_set"
+            android:visibility="invisible">
+
+
+
+            <EditText
+                android:id="@+id/keypadText"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:hint="0.00"
+                android:textAlignment="viewEnd"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:inputType="textPersonName"
+                android:text=""
+                android:gravity="end" />
+
+
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/items_list"
+            android:layout_marginTop="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+
+
+            <GridLayout
+                android:id="@+id/keypad"
+                android:layout_marginTop="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="8"
+                android:alignmentMode="alignMargins"
+                android:columnCount="3"
+                android:columnOrderPreserved="false"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"
+                android:rowCount="3"
+                android:visibility="invisible">
+
+                <!-- col 1 -->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="1"
+                            android:textSize="30dp"
+                            android:background="@null"
+                            />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="2"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="3"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="4"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="5"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="6"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="7"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="8"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="9"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <ImageButton
+                        android:id="@+id/hide_dialpad"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_clear"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardBackgroundColor="@color/white">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="30dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_arrow_right"
+                        />
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+
+
+            </GridLayout>
+
+
+
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:gravity="bottom"
+        android:id="@+id/selected_items"
+        android:background="#012166"
+        android:visibility="invisible"
+        android:layout_marginBottom="50dp"
+        >
+
+
+        <ListView
+            android:id="@+id/selected_list"
+            android:background="@drawable/border_top_blue"
+            android:layout_marginTop="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70dp"></ListView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/border_top_blue_background">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/show_available_items"
+                android:src="@drawable/ic_arrow_back"
+                android:backgroundTint="@null"
+                android:textColor="@color/white"
+                android:background="@null"/>
+
+            <Button
+                android:id="@+id/checkout_button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_toRightOf="@+id/show_available_items"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/paypalsansbig_regular"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:background="@drawable/border_left_blue_background"
+                android:text="CHECKOUT"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
