@@ -3,17 +3,15 @@ package com.example.tra.pos;
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.viewpager.widget.ViewPager;
 
 
@@ -26,7 +24,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PosActivity extends AppCompatActivity {
+public class PosActivity extends FragmentActivity {
 
     private PosViewModel posViewModel;
 
@@ -45,7 +43,7 @@ public class PosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pos);
 
-        posViewModel = ViewModelProviders.of(this).get(PosViewModel.class);
+        posViewModel = ViewModelProviders.of( this).get(PosViewModel.class);
         posViewModel.getAllItems().observe(this, new Observer<List<Items>>() {
             @Override
             public void onChanged(List<Items> items) {

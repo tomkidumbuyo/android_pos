@@ -3,7 +3,6 @@ package com.example.tra.pos;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 
+import androidx.fragment.app.Fragment;
+
+import com.example.tra.Database.Entities.Items;
 import com.example.tra.ItemsActivity;
 import com.example.tra.R;
 
@@ -56,12 +58,12 @@ public class SalesFragment extends Fragment {
 
         ListView selectedList = view.findViewById(R.id.selected_list);
 
-        ArrayList<ItemsActivity> itemsArrayList = new ArrayList<ItemsActivity>(); // calls function to get items list
+        ArrayList<Items> itemsArrayList = new ArrayList<Items>(); // calls function to get items list
 
-        ItemsActivity item1 = new ItemsActivity();
+        Items item1 = new Items("car",5000);
         itemsArrayList.add(item1);
 
-        ItemsActivity item2 = new ItemsActivity();
+        Items item2 = new Items("cellphone",600);
         itemsArrayList.add(item2);
 
         PosActivity.ItemsListAdapter adapter = new PosActivity.ItemsListAdapter(home_activity, itemsArrayList);
