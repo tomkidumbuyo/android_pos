@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tra.Database.Entities.SaleItems;
 import com.example.tra.R;
+import com.example.tra.Repositories.ItemRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,8 +61,10 @@ public class SalesItemListAdapter extends RecyclerView.Adapter<SalesItemListAdap
     @Override
     public void onBindViewHolder(@NonNull SalesItemListHolder holder, int position) {
 
+        // ItemRepository itemRepository = new ItemRepository()
+
         SaleItems currentItem = salesItems.get(position);
-        holder.textViewName.setText(currentItem.getItem().getName());
+        holder.textViewName.setText(currentItem.getItem());
         holder.textViewPriceEach.setText(String.valueOf(currentItem.getPriceEach()));
         holder.textViewAmount.setText(currentItem.getAmount());
         holder.textViewTotal.setText(currentItem.getTotalPrice());

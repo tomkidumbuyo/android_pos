@@ -1,22 +1,26 @@
 package com.example.tra.Database.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
-import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.Query;
+
+import com.example.tra.Database.Dao.ItemDao;
+import com.example.tra.Repositories.ItemRepository;
 
 @Entity(foreignKeys = {
         @ForeignKey(
                 entity = Sales.class,
                 parentColumns = "id",
-                childColumns = "sales_id"
+                childColumns = "sale_id"
         ),
         @ForeignKey(
                 entity = Items.class,
                 parentColumns = "id",
-                childColumns = "items_id"
+                childColumns = "item_id"
         )
 })
 public class SaleItems {
@@ -25,10 +29,13 @@ public class SaleItems {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    @Embedded
-    public Items item;
+    @ColumnInfo(name = "item_id")
+    public int item;
 
-    @ColumnInfo(name = "items_id")
+    @ColumnInfo(name = "sale_id")
+    public int sale;
+
+    //@ColumnInfo(name = "amount")
     public int amount;
 
     @ColumnInfo(name = "price_each")
@@ -37,11 +44,15 @@ public class SaleItems {
     @ColumnInfo(name = "total_price")
     public int totalPrice;
 
-    public SaleItems(Items item, int amount, int priceEach, int totalPrice) {
+    public SaleItems(int item, int amount, int priceEach, int totalPrice) {
         this.item = item;
         this.amount = amount;
         this.priceEach = priceEach;
         this.totalPrice = totalPrice;
+    }
+
+    public void setSale(Sales sale) {
+        this.sale = sale.id;
     }
 
     public void setId(int id) {
@@ -52,7 +63,8 @@ public class SaleItems {
         return id;
     }
 
-    public Items getItem() {
+    public int getItem() {
+
         return item;
     }
 

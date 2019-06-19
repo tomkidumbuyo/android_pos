@@ -19,4 +19,8 @@ public class Sales {
     @ColumnInfo(name = "date")
     public Date date;
 
+
+
+
+
 }

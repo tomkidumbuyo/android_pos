@@ -1,12 +1,12 @@
 package com.example.tra.pos;
 
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 
@@ -40,12 +40,7 @@ public class PosActivity extends FragmentActivity {
         setContentView(R.layout.activity_pos);
 
         posViewModel = ViewModelProviders.of(this).get(PosViewModel.class);
-        posViewModel.getAllItems().observe(this, new Observer<List<Items>>() {
-            @Override
-            public void onChanged(List<Items> items) {
 
-            }
-        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.main_menu);
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "571753477768",
+    "firebase_url": "https://tra-android.firebaseio.com",
+    "project_id": "tra-android",
+    "storage_bucket": "tra-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571753477768:android:4fe7ae0ef25e2a30",
+        "android_client_info": {
+          "package_name": "com.example.tra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571753477768-515vgbpm4shj4nlkadgmjp8ope2u4gmf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tra",
+            "certificate_hash": "b8ebdb2174d179e9955afa8fbb5958d228396893"
+          }
+        },
+        {
+          "client_id": "571753477768-nqm3re9ibcbp2fj5ngpisu7cpv172gji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE7Yuu0p4-cJ0TulRW-jon7CaC1IZoA00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571753477768-nqm3re9ibcbp2fj5ngpisu7cpv172gji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

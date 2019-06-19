@@ -31,8 +31,9 @@ public class ItemRepository {
     public void delete(Items item){
         new DeleteItemAsyncTask(itemDao).execute(item);
     }
-    public void deleteAll(){
-        new DeleteAllItemAsyncTask(itemDao).execute();
+
+    public Items findById(int id){
+        return itemDao.findById(id);
     }
 
     public LiveData<List<Items>> getAll(){
@@ -84,18 +85,7 @@ public class ItemRepository {
         }
     }
 
-    private static class DeleteAllItemAsyncTask extends AsyncTask<Items, Void, List<Items>> {
 
-        private ItemDao itemDao;
 
-        private DeleteAllItemAsyncTask(ItemDao itemDao){
-            this.itemDao = itemDao;
-        }
 
-        @Override
-        protected List<Items> doInBackground(Items... items) {
-            itemDao.deleteAll();
-            return null;
-        }
-    }
 }

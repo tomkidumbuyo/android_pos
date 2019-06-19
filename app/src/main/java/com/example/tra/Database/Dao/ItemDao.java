@@ -26,9 +26,8 @@ public interface ItemDao {
     @Query("SELECT * FROM items")
     LiveData<List<Items>> getAll();
 
-    @Query("SELECT * FROM items")
-    LiveData<List<Items>> findById(String id);
+    @Query("SELECT * FROM items WHERE id = :id LIMIT 1")
+    Items findById(int id);
 
 
-    void deleteAll();
 }

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.tra.Database.Dao.ItemDao;
@@ -17,6 +18,7 @@ import com.example.tra.Database.Entities.SaleItems;
 import com.example.tra.Database.Entities.Sales;
 
 @Database(entities = {Items.class, SaleItems.class, Sales.class},version = 1)
+@TypeConverters({DateTimeConverter.class,DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

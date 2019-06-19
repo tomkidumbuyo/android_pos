@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
+
+import androidx.annotation.RequiresApi;
 
 import com.example.tra.Utils.Config;
 
