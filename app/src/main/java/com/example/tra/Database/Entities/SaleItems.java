@@ -20,6 +20,7 @@ import androidx.room.PrimaryKey;
         )
 })
 public class SaleItems {
+
     @NonNull
     @PrimaryKey(autoGenerate = true)
     public int id;
@@ -28,10 +29,46 @@ public class SaleItems {
     public Items item;
 
     @ColumnInfo(name = "items_id")
-    public String items;
+    public int amount;
 
-    @ColumnInfo(name = "sales_id")
-    public String lastName;
+    @ColumnInfo(name = "price_each")
+    public int priceEach;
+
+    @ColumnInfo(name = "total_price")
+    public int totalPrice;
+
+    public SaleItems(Items item, int amount, int priceEach, int totalPrice) {
+        this.item = item;
+        this.amount = amount;
+        this.priceEach = priceEach;
+        this.totalPrice = totalPrice;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Items getItem() {
+        return item;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public int getPriceEach() {
+        return priceEach;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+
 
 
 }

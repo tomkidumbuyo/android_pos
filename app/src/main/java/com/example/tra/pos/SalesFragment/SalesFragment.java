@@ -1,5 +1,6 @@
-package com.example.tra.pos;
+package com.example.tra.pos.SalesFragment;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,17 +10,21 @@ import android.view.ViewGroup;
 import android.view.animation.TranslateAnimation;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tra.Database.Entities.Items;
-import com.example.tra.ItemsActivity;
 import com.example.tra.R;
+import com.example.tra.pos.PosActivity;
+import com.example.tra.pos.PosViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.graphics.Color.argb;
 
@@ -28,6 +33,8 @@ import static android.graphics.Color.argb;
  */
 
 public class SalesFragment extends Fragment {
+
+    private PosViewModel posViewModel;
 
     private static final String TAG = "SalesFragment";
     public View view;
@@ -38,7 +45,8 @@ public class SalesFragment extends Fragment {
     RelativeLayout selectedItems;
     RelativeLayout availableItems;
 
-    ListView itemsList;
+    RecyclerView itemsList;
+    RecyclerView selectedList;
     GridLayout keypad;
 
     ImageButton dialPadButton;
@@ -53,22 +61,42 @@ public class SalesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_sales,container,false);
         home_activity = (PosActivity) getActivity();
 
+        posViewModel = ViewModelProviders.of(this).get(PosViewModel.class);
+
+
+//        Items item1 = new Items("car",5000);
+//        itemsArrayList.add(item1);
+//
+//        Items item2 = new Items("cellphone",600);
+//        itemsArrayList.add(item2);
+
         itemsList = view.findViewById(R.id.items_list);
+        itemsList.setLayoutManager(new LinearLayoutManager(home_activity));
+        itemsList.setHasFixedSize(true);
+
+        selectedList = view.findViewById(R.id.selected_list);
+        selectedList.setLayoutManager(new LinearLayoutManager(home_activity));
+        selectedList.setHasFixedSize(true);
+
+        final ItemsListAdapter itemsListAdapter = new ItemsListAdapter(home_activity);
+        itemsList.setAdapter(itemsListAdapter);
+
+        SalesItemListAdapter salesItemListAdapter = new SalesItemListAdapter(home_activity);
+        selectedList.setAdapter(salesItemListAdapter);
+
+        posViewModel.getAllItems().observe(this, new Observer<List<Items>>() {
+            @Override
+            public void onChanged(List<Items> items) {
+                itemsListAdapter.setItems(items);
+            }
+        });
+
+
+
         keypad = view.findViewById(R.id.keypad);
 
-        ListView selectedList = view.findViewById(R.id.selected_list);
 
-        ArrayList<Items> itemsArrayList = new ArrayList<Items>(); // calls function to get items list
 
-        Items item1 = new Items("car",5000);
-        itemsArrayList.add(item1);
-
-        Items item2 = new Items("cellphone",600);
-        itemsArrayList.add(item2);
-
-        PosActivity.ItemsListAdapter adapter = new PosActivity.ItemsListAdapter(home_activity, itemsArrayList);
-        itemsList.setAdapter(adapter);
-        selectedList.setAdapter(adapter);
 
 
 

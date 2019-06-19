@@ -2,15 +2,10 @@ package com.example.tra.pos;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.viewpager.widget.ViewPager;
 
@@ -18,10 +13,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.tra.Database.Entities.Items;
 import com.example.tra.R;
 import com.example.tra.Utils.BottomNavigationViewHelper;
+import com.example.tra.pos.PurchasesFragment.PurchaseFragment;
+import com.example.tra.pos.SalesFragment.SalesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PosActivity extends FragmentActivity {
@@ -43,7 +39,7 @@ public class PosActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pos);
 
-        posViewModel = ViewModelProviders.of( this).get(PosViewModel.class);
+        posViewModel = ViewModelProviders.of(this).get(PosViewModel.class);
         posViewModel.getAllItems().observe(this, new Observer<List<Items>>() {
             @Override
             public void onChanged(List<Items> items) {
@@ -122,41 +118,5 @@ public class PosActivity extends FragmentActivity {
 
     }
 
-    static class ItemsListAdapter extends BaseAdapter {
-
-        private Context context; //context
-        private ArrayList<Items> items;
-
-        ItemsListAdapter(Context context, ArrayList<Items> items){
-            this.context = context;
-            this.items = items;
-        }
-
-        @Override
-        public int getCount() {
-            return items.size(); //returns total of items in the list
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return items.get(position); //returns list item at the specified position
-        }
-
-        @Override
-        public long getItemId(int position){
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).
-                        inflate(R.layout.list_pos_items, parent, false);
-            }
-
-            return convertView;
-
-        }
-    }
 
 }

@@ -2,7 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -138,10 +137,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
 
 
@@ -160,8 +156,7 @@
                 android:horizontalSpacing="1dp"
                 android:verticalSpacing="1dp"
                 android:rowCount="3"
-                android:visibility="invisible"
-            tools:targetApi="ice_cream_sandwich">
+                android:visibility="invisible">
 
                 <!-- col 1 -->
                 <android.support.v7.widget.CardView
