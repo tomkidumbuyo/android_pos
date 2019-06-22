@@ -58,7 +58,13 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            itemDao.insert(new Items("cocacola",2000));
+
+            itemDao.insert(new Items("cocacola",600));
+            itemDao.insert(new Items("fanta",600));
+            itemDao.insert(new Items("sprite",600));
+            itemDao.insert(new Items("kilimanjaro larger",2000));
+            itemDao.insert(new Items("safari larger",2000));
+
             return null;
         }
     }

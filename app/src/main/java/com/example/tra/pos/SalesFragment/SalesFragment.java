@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tra.Database.Entities.Items;
+import com.example.tra.Database.Entities.SaleItems;
 import com.example.tra.R;
 import com.example.tra.pos.PosActivity;
 import com.example.tra.pos.PosViewModel;
@@ -54,6 +55,9 @@ public class SalesFragment extends Fragment {
 
     Boolean dialpad_visible = false;
 
+    ItemsListAdapter itemsListAdapter;
+    SalesItemListAdapter salesItemListAdapter;
+
 
     @Nullable
     @Override
@@ -64,13 +68,6 @@ public class SalesFragment extends Fragment {
 
         posViewModel = ViewModelProviders.of(this).get(PosViewModel.class);
 
-
-//        Items item1 = new Items("car",5000);
-//        itemsArrayList.add(item1);
-//
-//        Items item2 = new Items("cellphone",600);
-//        itemsArrayList.add(item2);
-
         itemsList = view.findViewById(R.id.items_list);
         itemsList.setLayoutManager(new LinearLayoutManager(home_activity));
         itemsList.setHasFixedSize(true);
@@ -79,16 +76,23 @@ public class SalesFragment extends Fragment {
         selectedList.setLayoutManager(new LinearLayoutManager(home_activity));
         selectedList.setHasFixedSize(true);
 
-        final ItemsListAdapter itemsListAdapter = new ItemsListAdapter(home_activity);
+        itemsListAdapter = new ItemsListAdapter(home_activity,this);
         itemsList.setAdapter(itemsListAdapter);
 
-        SalesItemListAdapter salesItemListAdapter = new SalesItemListAdapter(home_activity);
+        salesItemListAdapter = new SalesItemListAdapter(home_activity);
         selectedList.setAdapter(salesItemListAdapter);
 
         posViewModel.getAllItems().observe(this, new Observer<List<Items>>() {
             @Override
             public void onChanged(List<Items> items) {
                 itemsListAdapter.setItems(items);
+            }
+        });
+
+        posViewModel.getSaleItems().observe(this, new Observer<List<SaleItems>>() {
+            @Override
+            public void onChanged(List<SaleItems> items) {
+                salesItemListAdapter.setItems(items);
             }
         });
 
@@ -241,6 +245,10 @@ public class SalesFragment extends Fragment {
         keypad_input_div.setVisibility(View.INVISIBLE);
 
         dialpad_visible = false;
+    }
+
+    public void addItemToSale(Items item){
+        posViewModel.addItemToSale(item);
     }
 
 

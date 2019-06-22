@@ -42,13 +42,7 @@
                 android:textColor="@color/indigo_900" />
 
 
-            <TextView
-                android:id="@+id/item_price_each"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" @ 12,000.00"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                android:textColor="@color/grey_40" />
+
 
         </LinearLayout>
 
@@ -59,20 +53,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/item_total_price"
+                android:id="@+id/item_price_each"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="24,000.00 TSH"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/light_blue_500" />
 
-            <TextView
-                android:id="@+id/item_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="x2"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                android:textColor="@color/grey_40" />
+
 
         </LinearLayout>
 

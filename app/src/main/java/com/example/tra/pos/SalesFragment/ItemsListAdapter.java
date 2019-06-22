@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tra.Database.Entities.Items;
@@ -21,8 +22,11 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
     private Context context; //context
     private List<Items> items = new ArrayList<>();
     View convertView;
+    SalesFragment fragment;
+    Items currentItem;
 
-    ItemsListAdapter(Context context){
+    ItemsListAdapter(Context context, SalesFragment fragment){
+        this.fragment = fragment;
         this.context = context;
     }
 
@@ -31,16 +35,13 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         private ImageView imageView;
         private TextView textViewName;
         private TextView textViewPriceEach;
-        private TextView textViewAmount;
-        private TextView textViewTotal;
+
 
         public ItemsListHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.item_image);
             textViewName = itemView.findViewById(R.id.item_name);
             textViewPriceEach = itemView.findViewById(R.id.item_price_each);
-            textViewAmount = itemView.findViewById(R.id.item_amount);
-            textViewTotal = itemView.findViewById(R.id.item_total_price);
         }
 
     }
@@ -53,14 +54,20 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         if (convertView == null) {
             convertView = LayoutInflater.from(context).
                     inflate(R.layout.list_pos_items, parent, false);
-        }
 
+            convertView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    fragment.addItemToSale(currentItem);
+                }
+            });
+        }
         return new ItemsListHolder(convertView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemsListHolder holder, int position) {
-        Items currentItem = items.get(position);
+        currentItem = items.get(position);
         holder.textViewName.setText(currentItem.getName());
         holder.textViewPriceEach.setText(String.valueOf(currentItem.getPrice()));
 
