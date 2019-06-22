@@ -51,7 +51,6 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
     @NonNull
     @Override
     public ItemsListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (convertView == null) {
             convertView = LayoutInflater.from(context).
                     inflate(R.layout.list_pos_items, parent, false);
 
@@ -61,9 +60,11 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
                     fragment.addItemToSale(currentItem);
                 }
             });
-        }
+
         return new ItemsListHolder(convertView);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull ItemsListHolder holder, int position) {
