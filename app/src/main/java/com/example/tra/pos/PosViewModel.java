@@ -12,12 +12,13 @@ import com.example.tra.Database.Entities.Items;
 import com.example.tra.Database.Entities.SaleItems;
 import com.example.tra.Repositories.ItemRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PosViewModel extends AndroidViewModel {
     private ItemRepository itemRepository;
     private LiveData<List<Items>> allItems;
-    private List<SaleItems> _saleItems;
+    private List<SaleItems> _saleItems = new ArrayList<SaleItems>();
     private MutableLiveData<List<SaleItems>> saleItems = new MutableLiveData<List<SaleItems>>();
 
     public PosViewModel(@NonNull Application application) {

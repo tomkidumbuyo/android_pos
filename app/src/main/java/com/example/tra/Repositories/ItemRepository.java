@@ -15,9 +15,10 @@ public class ItemRepository {
 
     private ItemDao itemDao;
     private LiveData<List<Items>> all;
+    private  AppDatabase database;
 
     public ItemRepository(Application application){
-        AppDatabase database = AppDatabase.getInstance(application);
+        database = AppDatabase.getInstance(application);
         itemDao = database.itemDao();
         all =  itemDao.getAll();
     }

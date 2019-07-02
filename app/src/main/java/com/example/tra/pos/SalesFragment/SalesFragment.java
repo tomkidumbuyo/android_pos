@@ -79,7 +79,7 @@ public class SalesFragment extends Fragment {
         itemsListAdapter = new ItemsListAdapter(home_activity,this);
         itemsList.setAdapter(itemsListAdapter);
 
-        salesItemListAdapter = new SalesItemListAdapter(home_activity);
+        salesItemListAdapter = new SalesItemListAdapter(home_activity,this);
         selectedList.setAdapter(salesItemListAdapter);
 
         posViewModel.getAllItems().observe(this, new Observer<List<Items>>() {

@@ -14,7 +14,7 @@
         android:background="@drawable/btn_rounded_accent">
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/selected_item_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
@@ -35,16 +35,16 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_name"
+            android:id="@+id/selected_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item 1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-            android:textColor="@color/indigo_900" />
+            android:textColor="@color/white" />
 
 
         <TextView
-            android:id="@+id/item_price_each"
+            android:id="@+id/selected_item_price_each"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" @ 12,000.00"
@@ -60,7 +60,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_total_price"
+            android:id="@+id/selected_item_total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="24,000.00 TSH"
@@ -68,7 +68,7 @@
             android:textColor="@color/light_blue_500" />
 
         <TextView
-            android:id="@+id/item_amount"
+            android:id="@+id/selected_item_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="x2"

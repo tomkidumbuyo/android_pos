@@ -68,6 +68,10 @@ public class SaleItems {
         return item;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public int getAmount() {
         return amount;
     }
